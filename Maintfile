@@ -1,0 +1,58 @@
+#
+#! \file    ./Maintfile
+#! \author  Jiří Kučera, <jkucera AT redhat.com>
+#! \stamp   2018-06-12 14:12:35 (UTC+01:00, DST+01:00)
+#! \project ???
+#! \license ???
+#! \version ???
+#! \fdesc   Project maintenance script.
+#
+
+# Project variables:
+setvar PROJECT 'python-pylint-common maintenance tools'
+setvar AUTHOR_NAME 'Jiří Kučera'
+setvar AUTHOR_EMAIL 'jkucera AT redhat.com'
+setvar LICENSE 'MIT'
+setvar VERSION '0.0.0'
+
+setvar PKG_NAME 'python-pylint-common'
+setvar PKG_VERSION ''
+setvar UPSTREAM_REPO ""
+setvar DOWNSTREAM_REPO ""
+
+# Project files:
+addfile license : LICENSE
+addfile version : VERSION
+addfile : .gitignore README.md
+addfile sources : Maintfile
+
+###############################################################################
+# Project maintaining tasks (targets)
+###############################################################################
+
+##
+# Print usage as default.
+tg_default() {
+  echo 'Maintfile targets:'
+  echo ''
+  echo '  get_repos'
+  echo '    get upstream, downstream and package repos'
+  echo '  missing'
+  echo '    add missing files to the project root (LICENSE, README.md, and'
+  echo '    VERSION) and update headers of source files (\project, \license,'
+  echo '    and \version)'
+  echo ''
+}
+
+##
+# missing
+#
+# Add missing files to the project root (LICENSE, README.md, and VERSION) and
+# update headers of source files (\project, \license, and \version).
+target missing
+
+##
+# get_repos
+#
+# Get upstream, downstream and package repos.
+target get_repos
